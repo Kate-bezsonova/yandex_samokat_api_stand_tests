@@ -1,0 +1,18 @@
+Задание №1
+SELECT c.login, COUNT(o.inDelivery=true) 
+FROM “Couriers” as c INNER JOIN
+“Orders” as o 
+ON 
+c.id = o.courierId 
+GROUP BY c.login
+HAVING o.inDelivery=true
+
+Задание №2
+SELECT track, 
+    Case 
+    When finished==true then '2''
+    When canceled==true then '-1''
+    When inDelivery==true then '1'
+    Else '0'
+    End
+FROM "Orders" 
